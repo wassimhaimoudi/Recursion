@@ -143,7 +143,7 @@ int main()
   p = is_prime2(-1);
   printf("%d\n", p);
   p = is_prime2(0);
-  printf("%d\n", r);
+  printf("%d\n", p);
   p = is_prime2(17);
   printf("%d\n", p);
   return 0;
