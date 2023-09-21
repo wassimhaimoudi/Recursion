@@ -91,7 +91,23 @@ int is_prime(int n)
     return 0;
   return primeHelper(n, n - 1);
 }
-
+/* prime chec using a for loop */
+int is_prime2(int n)
+{
+  int i;
+  
+  if (n <= 1) return (0);
+  
+  for (i = n; i > 0;)
+  {
+    i--;
+    if (i == 1)
+      break;
+    if (n % i == 0)
+      return 0;
+  }
+  return 1;
+}
 int main()
 {
 /*
@@ -111,10 +127,24 @@ int main()
   printf("The LCM of %d and %d is %d\n", a, b, findLCM(a, b));
   printf("%d to the power of %d is %d", a, b, power(a, b));
   // prime test
-  int r;
+  int r, p;
+  // recursion test  
   r = is_prime(1);
   printf("%d\n", r);
   r = is_prime(11);
   printf("%d\n", r);
+  // loop test  
+  p = is_prime2(1);
+  printf("%d\n", p);
+  p = is_prime2(11);
+  printf("%d\n", p);
+  r = is_prime2(4);
+  printf("%d\n", p);
+  p = is_prime2(-1);
+  printf("%d\n", p);
+  p = is_prime2(0);
+  printf("%d\n", r);
+  p = is_prime2(17);
+  printf("%d\n", p);
   return 0;
 }
