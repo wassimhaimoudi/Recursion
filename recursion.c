@@ -74,6 +74,24 @@ int power(int base, int expon)
     return base * power(base, expon - 1);
   }
 }
+/* iterating over all the numbers starting from i - 1 down the row with i > 0 */
+int primeHelper(int n, int i)
+{
+  if (i == 1)
+    return 1;
+  else if (n % i == 0 && i > 0)
+    return 0;
+  
+  return (primeHelper(n, i - 1));
+}
+/* checking if n is prime using the previous term n - 1 as an iterator */
+int is_prime(int n)
+{
+  if (n <= 1)
+    return 0;
+  return primeHelper(n, n - 1);
+}
+
 int main()
 {
 /*
@@ -92,5 +110,11 @@ int main()
   printf("The GCD of %d and %d is %d\n", a, b, findGCD(a, b));
   printf("The LCM of %d and %d is %d\n", a, b, findLCM(a, b));
   printf("%d to the power of %d is %d", a, b, power(a, b));
+  // prime test
+  int r;
+  r = is_prime(1);
+  printf("%d\n", r);
+  r = is_prime(11);
+  printf("%d\n", r);
   return 0;
 }
